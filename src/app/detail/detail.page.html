@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ item?.itemName }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <h3>Price</h3>
+  <p>Rs. {{ item?.itemPrice }}</p>
 
+  <h3>Description</h3>
+  <p>{{ item?.itemDescription }}</p>
+
+  <h3>Category</h3>
+  <p>{{ item?.itemCategory }}</p>
+
+  <h3>Stock</h3>
+  <p>{{ item?.itemStock }}</p>
+
+  <ion-button expand="block" (click)="addToCart()"> ADD THIS ITEM TO CART </ion-button>
 </ion-content>

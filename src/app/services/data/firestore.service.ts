@@ -33,4 +33,8 @@ export class FirestoreService {
     return this.firestore.collection<Item>(`itemList`).valueChanges();
   }
   
+  getItemDetail(itemId: string): Observable<Item> {
+    return this.firestore.collection('itemList').doc<Item>(itemId).valueChanges();
+  }
+  
 }
