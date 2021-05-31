@@ -1,9 +1,65 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>my-listings-add</ion-title>
+    <ion-title>Add New Item to Market Place</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-content padding>
+    <form [formGroup]="createItemForm" (submit)="createItem()">
+      <ion-item>
+        <ion-label stacked>Item Name</ion-label>
+        <ion-input
+          formControlName="itemName"
+          type="text"
+          placeholder="Enter Your Item Name!"
+        >
+        </ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label stacked>Item Price</ion-label>
+        <ion-input
+          formControlName="itemPrice"
+          type="text"
+          placeholder="How much is it?"
+        >
+        </ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label stacked>Description</ion-label>
+        <ion-input
+          formControlName="itemDescription"
+          type="text"
+          placeholder="Tell us more about item!"
+        >
+        </ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label stacked>Category</ion-label>
+        <ion-textarea
+          formControlName="itemCategory"
+          type="text"
+          placeholder="What is the item category?"
+        >
+        </ion-textarea>
+      </ion-item>
 
+      <ion-item>
+        <ion-label stacked>Stock</ion-label>
+        <ion-textarea
+          formControlName="itemStock"
+          type="text"
+          placeholder="How much stock you have?"
+        >
+        </ion-textarea>
+      </ion-item>
+  
+      <ion-button expand="block" type="submit" [disabled]="!createItemForm.valid">
+        Add Item
+      </ion-button>
+    </form>
+  </ion-content>
 </ion-content>

@@ -32,7 +32,17 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'detail/:id',
+    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
+  },
+
+  {
+    path: 'my-listings-add',
+    loadChildren: () => import('./my-listings-add/my-listings-add.module').then( m => m.MyListingsAddPageModule)
   }
+  
 ];
 @NgModule({
   imports: [
