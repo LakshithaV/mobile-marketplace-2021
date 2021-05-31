@@ -10,5 +10,15 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-content class="padding">
+    <ion-item
+      *ngFor="let item of itemList | async"
+      routerLink="/detail/{{item.id}}"
+    >
+      <ion-label>
+        <h2>{{ item.itemName}}</h2>
+        <p>Item Price: Rs.{{ item.itemPrice }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-content>
 </ion-content>

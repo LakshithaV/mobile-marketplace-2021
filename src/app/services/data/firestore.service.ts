@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import 'firebase/firestore';
+import { Observable } from 'rxjs';
 import { Item } from '../../models/item.interface';
 @Injectable({
   providedIn: 'root'
@@ -27,4 +28,9 @@ export class FirestoreService {
       itemStock,
     })
   }
+
+  getItemList(): Observable<Item[]> {
+    return this.firestore.collection<Item>(`itemList`).valueChanges();
+  }
+  
 }
