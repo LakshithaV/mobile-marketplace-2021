@@ -15,6 +15,9 @@
       *ngFor="let item of itemList | async"
       routerLink="/detail/{{item.id}}"
     >
+      <ion-thumbnail>
+        <ion-img [src]="item.image"></ion-img>
+      </ion-thumbnail>
       <ion-label>
         <h2>{{ item.itemName}}</h2>
         <p>Item Price: Rs.{{ item.itemPrice }}</p>
