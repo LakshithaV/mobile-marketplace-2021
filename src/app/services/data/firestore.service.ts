@@ -15,6 +15,7 @@ export class FirestoreService {
     itemPrice: number,
     itemDescription: string,
     itemCategory: string,
+    image: string,
     itemStock: number
   ): Promise<void>{
     const id = this.firestore.createId();
@@ -25,6 +26,7 @@ export class FirestoreService {
       itemPrice,
       itemDescription,
       itemCategory,
+      image,
       itemStock,
     })
   }

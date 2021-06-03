@@ -23,6 +23,7 @@ export class MyListingsAddPage implements OnInit {
       itemPrice: ['', Validators.required],
       itemDescription: ['', Validators.required],
       itemCategory: ['', Validators.required],
+      image: ['', Validators.required],
       itemStock: ['', Validators.required],
     })
   }
@@ -34,10 +35,11 @@ export class MyListingsAddPage implements OnInit {
     const itemPrice = this.createItemForm.value.itemPrice;
     const itemDescription = this.createItemForm.value.itemDescription;
     const itemCategory = this.createItemForm.value.itemCategory;
+    const image = this.createItemForm.value.image;
     const itemStock = this.createItemForm.value.itemStock;
   
     this.firestoreService
-      .createItem(itemName, itemPrice, itemDescription, itemCategory, itemStock)
+      .createItem(itemName, itemPrice, itemDescription, itemCategory,image, itemStock)
       .then(
         () => {
           loading.dismiss().then(() => {

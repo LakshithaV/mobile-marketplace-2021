@@ -48,6 +48,16 @@
       </ion-item>
 
       <ion-item>
+        <ion-label stacked>Image</ion-label>
+        <ion-textarea
+          formControlName="image"
+          type="text"
+          placeholder="Do you have an image?"
+        >
+        </ion-textarea>
+      </ion-item>
+
+      <ion-item>
         <ion-label stacked>Stock</ion-label>
         <ion-textarea
           formControlName="itemStock"
@@ -56,6 +66,8 @@
         >
         </ion-textarea>
       </ion-item>
+
+      
   
       <ion-button expand="block" type="submit" [disabled]="!createItemForm.valid">
         Add Item
