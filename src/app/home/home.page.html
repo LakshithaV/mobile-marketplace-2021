@@ -3,25 +3,30 @@
     <ion-title>Mobile Market Place</ion-title>
     <ion-button slot="end">
       <ion-button routerLink="/my-listings-add">
-        <ion-icon slot="icon-only" name="add"></ion-icon>
+        <ion-icon slot="icon-only" name="bag-add-outline"></ion-icon>
       </ion-button>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
+<ion-searchbar
+    showcancelbutton=""
+    (ionInput)="filterList($event)"
+  ></ion-searchbar>
+  
 <ion-content>
-  <ion-content class="padding">
-    <ion-item
-      *ngFor="let item of itemList | async"
-      routerLink="/detail/{{item.id}}"
-    >
-      <ion-thumbnail>
-        <ion-img [src]="item.image"></ion-img>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ item.itemName}}</h2>
-        <p>Item Price: Rs.{{ item.itemPrice }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-content>
+  <div class="container">
+    <div class="card" *ngFor="let item of itemList | async"
+      routerLink="/detail/{{item.id}}">
+        <ion-thumbnail>
+          <ion-img  class="img" [src]="item.image"></ion-img>
+        </ion-thumbnail>
+        <div style="padding-left: 70px;">
+          <ion-label>
+            <h2>{{ item.itemName}}</h2>
+            <p>Item Price: Rs.{{ item.itemPrice }}</p>
+          </ion-label>
+      </div>
+    </div>
+  </div>
 </ion-content>
