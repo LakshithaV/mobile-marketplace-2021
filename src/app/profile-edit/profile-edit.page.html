@@ -5,9 +5,25 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  
   <ion-card>
     <ion-list>
 
+      <ion-item>
+        <ion-label position="stacked">Upload Your Image</ion-label>
+        <ion-button expand="full" *ngIf="!isLoading && !isLoaded" class="ion-text-center">
+          <ion-icon slot="start" lazy="true" name="image"></ion-icon>
+          <input type="file" (change)="uploadImagetoFirebase($event)" id="file-input" accept="image/png, image/jpg">
+        </ion-button>
+      
+        <ion-card *ngIf="isLoading && !isLoaded">
+          <ion-card-content *ngIf="percentage | async as percent">
+            Progress: {{percent | number}}%
+            <ion-progress-bar value="{{percent / 100}}"></ion-progress-bar>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+      
       <ion-item>
         <ion-label position="stacked">Full Name</ion-label>
         <ion-input required type="text" [(ngModel)]="name" name="name"></ion-input>

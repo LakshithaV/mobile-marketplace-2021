@@ -1,0 +1,19 @@
+.container{
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #232641;
+}
+
+ion-avatar{
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    border: 4px solid gold;
+}
+
+.overlay{
+    position: relative;
+    text-align: center;
+    top: 15%;
+}
