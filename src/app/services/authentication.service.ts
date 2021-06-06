@@ -1,41 +1,98 @@
 import { Injectable } from '@angular/core';
-import {AngularFireAuth} from '@angular/fire/auth';
-import {AngularFirestore} from '@angular/fire/firestore';
+import { User } from '../models/user';
+import { AngularFireAuth} from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import *  as firebase from 'firebase';
 import { Router } from '@angular/router';
+import { LoadingController, ToastController} from '@ionic/angular';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
+@Injectable()
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthenticationService {
-  userData;
-  constructor(private ngFireAuth:AngularFireAuth, private router:Router, public afStore:AngularFirestore) { 
-    this.ngFireAuth.authState.subscribe(user =>{
-      if(user){
-        this.userData = user; 
-        localStorage.setItem('user', JSON.stringify(this.userData))
-      }
-      else{
-        localStorage.setItem('user', null);
-      }
+export class AuthService {
+
+  user$: Observable<User>;
+  user: User;
+
+  constructor(
+    private afs: AngularFirestore,
+    private afauth: AngularFireAuth,
+    private router: Router,
+    private LoadingCtrl: LoadingController,
+    private toaster: ToastController
+  ) { 
+    this.user$ = this.afauth.authState
+    .pipe(
+      switchMap( user => {
+
+        if(user)
+        {
+          return this.afs.doc<User>(`user/${user.uid}`).valueChanges();
+        }else{
+          return of(null);
+        }
+      })
+    )
+  }//end of constructor
+
+  async signIn(email, password){
+    const loading = await this.LoadingCtrl.create({
+      message: 'Authenticating...',
+      spinner: 'crescent',
+      showBackdrop: true
+    });
+
+    loading.present();
+
+    this.afauth.setPersistence(firebase.default.auth.Auth.Persistence.LOCAL)
+    .then(()=> {
+      this.afauth.signInWithEmailAndPassword(email, password)
+      .then((data)=>
+      {
+        if(!data.user.emailVerified){
+          loading.dismiss();
+          this.toast('Pleasae verify your email address!', 'warning');
+          this.afauth.signOut();
+        }else{
+          loading.dismiss();
+          this.router.navigate(['/tabs/home']);
+        }
+      })
+      .catch(error => {
+        loading.dismiss();
+        this.toast(error.message, 'danger');
+      })
     })
-  }
+    .catch(error => {
+      loading.dismiss();
+      this.toast(error.message, 'danger');
+    });
+  }// end of signIn
 
-  SignIn(email, password){
-    return this.ngFireAuth.signInWithEmailAndPassword(email, password);
-  }
 
-  RegisterUser(email, password){
-    return this.ngFireAuth.createUserWithEmailAndPassword(email, password);
-  }
+  async signOut(){
+    const loading = await this.LoadingCtrl.create({
+      spinner: 'crescent',
+      showBackdrop: true
+    });
+    loading.present();
 
-  SignOut()
-  {
-    return this.ngFireAuth.signOut();
-  }
+    this.afauth.signOut()
+    .then(()=> {
+      loading.dismiss();
+      this.router.navigate(['/login']);
+    })
+  }// end of signOut
 
-  getUser(){
-    return this.ngFireAuth.user;
-  }
+  async toast(message, status){
+    const toast = await this.toaster.create({
+      message: message,
+      color: status,
+      position: 'top',
+      duration: 2000
+    });
+    toast.present();
+  }// end of toast
 
 }

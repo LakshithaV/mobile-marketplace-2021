@@ -1,41 +1,29 @@
-<ion-content class="ion-padding">
-  <ion-slides mode="md" [options]="slideOpts">
-    <ion-slide>
-      <div class="emailForm">
-        <h2 class="ion-text-center header_lbl" >Sign Up</h2>
-        <form [formGroup]="registration_form">    
-          <ion-item lines="full">
-            <ion-label position="floating">Email</ion-label>
-            <ion-input type="text" formControlName="email" required></ion-input>
-          </ion-item> 
-      
-          <ion-item lines="full">
-            <ion-label position="floating">Password</ion-label>
-            <ion-input type="password" formControlName="password" required></ion-input>
-          </ion-item>
-          <ion-item lines="full">
-            <ion-label position="floating">Confirm Password</ion-label>
-            <ion-input type="password" formControlName="confPassword"  required></ion-input>
-          </ion-item>
-      
-          <ion-row>
-            <ion-col> 
-            <ion-button class="btn_class" [disabled]="!registration_form.valid" color="secondary"  type="submit" (click)="signUp(registration_form.value)" expand="block">Register</ion-button>
-            </ion-col>
-          </ion-row>
-        </form>
-       
-      </div>
-    </ion-slide>
-    <ion-slide>
-      
-      <div class="emailForm">
-        <h2 class="ion-text-center header_lbl">Email Verification</h2>
-        <p class="subtitle ion-text-center">We sent email verification to
-          {{email}}. Please verify to continue...
-        </p>
-      </div>
-    </ion-slide>
-  </ion-slides> 
+<ion-content class="ion-paddig">
+  <ion-card>
+    <h2 class="ion-text-center header_lbl" >Sign Up</h2>
+    <ion-list>
 
+      <ion-item>
+        <ion-label position="stacked">Full Name</ion-label>
+        <ion-input required type="text" [(ngModel)]="name" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input required type="email" [(ngModel)]="email" name="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Phone</ion-label>
+        <ion-input required type="tel" [(ngModel)]="phone" name="phone"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input required type="password" [(ngModel)]="password" name="password"></ion-input>
+      </ion-item>
+
+      <ion-button type="submit" expand="block" shape="round" (click)="register()">Register</ion-button>
+    </ion-list>
+  </ion-card>
 </ion-content>

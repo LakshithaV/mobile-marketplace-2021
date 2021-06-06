@@ -1,36 +1,32 @@
+<ion-content class="ion-paddig">
 
+  <div class="login-logo">
+    <img src="assets/icon/favicon.png" class="logo_icon">
+    <p class="login-name">Mobile Market Place</p>
+    <p class="subTitle">Enter your login detail to access your account</p>
+  </div>
 
-<ion-content>
-<div class="login-logo">
-  <img src="assets/icon/favicon.png" class="logo_icon">
-  <p class="login-name">Mobile Market Place</p>
-  <p class="subTitle">Enter your login detail to access your account</p>
-</div>
-<form #loginForm="ngForm">
-  <ion-list lines="none">
-    <ion-item lines="none">
-      <ion-input [(ngModel)]="email" placeholder="Email" name="email" required>
+  <ion-card>
+    <h2 class="ion-text-center header_lbl" >Login</h2>
+    <form>
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
+        </ion-item>
 
-      </ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-input [(ngModel)]="password" placeholder="Password" name="password"  type="password" required>
+        <ion-item>
+          <ion-label position="stacked">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+        </ion-item>
+        
+        <ion-button expand="block" shape="round" type="submit" (click)="login()">Login</ion-button>
+      
+      </ion-list>
+    </form>
+  </ion-card>
 
-      </ion-input>
-    </ion-item>
-  </ion-list>
-
-  <ion-row class="Ion-no-margin ion-no-padding">
-    <ion-col class="Ion-no-margin ion-no-padding">
-      <ion-button class="btn_class" (click)="onLogin(loginForm)" color="secondary" type="submit" expand="block">
-        Login 
-      </ion-button>
-      <label class="errorMessage">{{errorMessage}}</label>
-    </ion-col>
-  </ion-row>
-</form>
-<p class="createAcc" (click)="register()">Don't have an account?
-  <span class="registerTag">Sign up</span>
-</p>
-
+  <div style="text-align: center;">
+    <p>Don't have account? Register <a [routerLink]="['/register']">Here!</a></p>
+  </div>
 </ion-content>

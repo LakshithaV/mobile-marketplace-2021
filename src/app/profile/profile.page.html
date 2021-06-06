@@ -1,9 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-title>User Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 
+  <ion-card>
+    <ion-card-content>
+      <h2>Name: {{user?.userName}}</h2>
+      <p>Email: {{user?.userEmail}}</p>
+      <p>Phone: {{user?.userPhone}}</p>
+      <p>Account Created at: {{user?.createdAt | date}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" shape="round" (click)="editProfile()">Edit Profile</ion-button>
+  <ion-button expand="block" shape="round" (click)="addItem()">Add new Item</ion-button>
+  <ion-button expand="block" shape="round" (click)="logout()">Logout</ion-button>
 </ion-content>
