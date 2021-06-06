@@ -10,6 +10,7 @@ import { FirestoreService } from '../services/data/firestore.service';
 })
 export class HomePage implements OnInit {
   public itemList: Observable<Item[]>;
+  filterTerm: string;
   constructor(
     private firestoreService : FirestoreService
   ) { }

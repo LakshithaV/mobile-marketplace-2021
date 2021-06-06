@@ -9,14 +9,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-searchbar
-    showcancelbutton=""
-    (ionInput)="filterList($event)"
-  ></ion-searchbar>
+<ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
   
 <ion-content>
   <div class="container">
-    <div class="card" *ngFor="let item of itemList | async"
+    <div class="card" *ngFor="let item of (itemList | async) | filter:filterTerm"
       routerLink="/detail/{{item.id}}">
         <ion-thumbnail>
           <ion-img  class="img" [src]="item.image"></ion-img>
