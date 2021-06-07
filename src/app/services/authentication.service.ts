@@ -36,6 +36,10 @@ export class AuthService {
     )
   }//end of constructor
 
+  getUser(){
+    return this.afauth.user;
+  }
+
   async signIn(email, password){
     const loading = await this.LoadingCtrl.create({
       message: 'Authenticating...',

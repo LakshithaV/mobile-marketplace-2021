@@ -1,9 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>my-listings</ion-title>
+    <ion-title>My Listings</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div class="container">
+    <div class="card" *ngFor="let item of data"
+      routerLink="/detail/{{item.id}}">
+        <ion-thumbnail>
+          <ion-img  class="img" [src]="item.image"></ion-img>
+        </ion-thumbnail>
+        <div style="padding-left: 70px;">
+          <ion-label>
+            <h2>{{ item.itemName}}</h2>
+            <p>Item Price: Rs.{{ item.itemPrice }}</p>
+          </ion-label>
+      </div>
+    </div>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-button expand="block" shape="round" (click)="addItem()">Add new Item</ion-button>
+</ion-footer>

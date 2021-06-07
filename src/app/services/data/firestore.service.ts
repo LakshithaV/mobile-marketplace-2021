@@ -11,6 +11,7 @@ export class FirestoreService {
   constructor(public firestore: AngularFirestore) { }
 
   createItem(
+    userId: string,
     itemName: string,
     itemPrice: number,
     itemDescription: string,
@@ -22,6 +23,7 @@ export class FirestoreService {
 
     return this.firestore.doc(`itemList/${id}`).set({
       id,
+      userId,
       itemName,
       itemPrice,
       itemDescription,
@@ -37,6 +39,10 @@ export class FirestoreService {
   
   getItemDetail(itemId: string): Observable<Item> {
     return this.firestore.collection('itemList').doc<Item>(itemId).valueChanges();
+  }
+
+  getUserListing(userId){
+    return this.firestore.collection<Item>(`itemList`, ref => ref.where('userId', '==', userId)).valueChanges();
   }
   
 }
