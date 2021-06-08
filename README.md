@@ -1,4 +1,4 @@
-# Emerging Trends in Computer Science (2018/2019) 
+# Emerging Trends in Computer Science
 ## Mobile App Development
 
 # **Mobile Marketplace**
