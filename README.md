@@ -1,6 +1,7 @@
-# Mobile App Development
+# Emerging Trends in Computer Science (2018/2019) 
+## Mobile App Development
 
-# **Mobile Marketplace 2021**
+# **Mobile Marketplace**
 
 Mobile Marketplace is an app that you can display the latest listings, add items to online market, 
 search for a listing using a text keyword, display the listings added by you, create and edit your profile etc.
@@ -41,7 +42,7 @@ This app including the following pages
   </tr>
   <tr>
     <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Detail.png"></td>
-    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/My%20Listings.png"></td>
+    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/My%20Listings%20Add.png"></td>
     <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Profile.png"></td>
     <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Profile%20Edit.png"></td>
   </tr>
