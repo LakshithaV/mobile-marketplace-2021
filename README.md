@@ -28,10 +28,10 @@ This app including the following pages
     <td>My Listings</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Login.png" width=270 height=480></td>
-    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Register.png" width=270 height=480></td>
-    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Home.png" width=270 height=480></td>
-    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/My%20Listings.png" width=270 height=480></td>
+    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Login.png"></td>
+    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Register.png"></td>
+    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Home.png"></td>
+    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/My%20Listings.png"></td>
   </tr>
   <tr>
     <td>Detail</td>
@@ -40,10 +40,10 @@ This app including the following pages
     <td>Profile Add</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Detail.png" width=270 height=480></td>
-    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/My%20Listings.png" width=270 height=480></td>
-    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Profile.png" width=270 height=480></td>
-    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Profile%20Edit.png" width=270 height=480></td>
+    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Detail.png"></td>
+    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/My%20Listings.png"></td>
+    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Profile.png"></td>
+    <td><img src="https://github.com/LakshithaV/mobile-marketplace-2021/blob/GroupE/app_Media/Profile%20Edit.png"></td>
   </tr>
 
 </table>
